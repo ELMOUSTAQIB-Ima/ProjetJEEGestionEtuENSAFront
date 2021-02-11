@@ -1,0 +1,49 @@
+<!--Projects section v.1-->
+<section>
+
+    <!--Section heading-->
+    <h2 class="text-center h1 py-5">
+      <strong>Our Courses</strong>
+    </h2>
+
+    <!--Section description-->
+    <p class="grey-text pb-5 text-center">L'université virtuelle Sultan Moulay Slimane GESTION ETUDIANT ENSA  est une plateforme pédagogique d'enseignement à distance qui intègre tous les établissements virtuels relevant de l'université Sultan Moulay Slimane. GESTION ETUDIANT ENSA  a pour mission de renforcer l'enseignement présentiel et promouvoir les pratiques pédagogiques, elle  permet aux enseignants  de créer leurs cours en ligne et aux étudiants  de suivre et de  consulter les cours.
+      La plateforme GESTION ETUDIANT ENSA dispose des outils d'enseignement, de formation, de collaboration, de gestion et de planification</p>
+
+    <!--Grid row-->
+    <div class="row text-center" *ngIf="courses">
+
+
+
+      <!--Grid column-->
+      <div class="col-lg-4 col-md-6 mb-4" *ngFor="let c of courses._embedded.courses">
+
+        <!--Featured image-->
+        <div class="view overlay rounded z-depth-1  waves-light" mdbWavesEffect>
+          <img [src]="this.crsService.host+'/photoCours/'+c.id+'?ts='+getTs()" class="img-fluid" alt="Sample project image">
+          <a>
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+
+        <!--Excerpt-->
+
+        <mdb-card-body class="mt-3" >
+          <h4>
+            <strong>{{c.nom}}</strong>
+          </h4>
+          <p class="grey-text">{{c.description}}
+          </p>
+          <span class="card">{{c.duree}}Seances</span>
+          <a mdbBtn color="indigo" size="sm" class="waves-light" mdbWavesEffect>
+            <mdb-icon far icon="clone" class="left"></mdb-icon> View Course</a>
+        </mdb-card-body>
+
+      </div>
+      <!--Grid column-->
+
+    </div>
+    <!--Grid row-->
+
+  </section>
+  <!--/Projects section v.1-->

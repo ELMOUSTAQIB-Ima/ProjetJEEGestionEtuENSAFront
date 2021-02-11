@@ -1,0 +1,88 @@
+<p></p>
+
+<div class="container col-md-8">
+<!-- Material form login -->
+<mdb-card>
+
+  <mdb-card-header class="info-color white-text text-center py-4">
+    <h5>
+      <strong>Sign in</strong>
+    </h5>
+  </mdb-card-header>
+
+
+  <!--Card content-->
+  <mdb-card-body class="px-lg-5 pt-0">
+
+
+    <!-- Form -->
+    <form #f="ngForm" (ngSubmit)="onLogin(f.value)"
+          class="text-center" style="color: #757575;">
+
+      <!-- Email -->
+      <div class="md-form">
+        <input type="text" id="materialLoginFormEmail"  ngModel name="username" class="form-control" mdbInput>
+        <label for="materialLoginFormEmail">Username</label>
+      </div>
+
+
+      <!-- Password -->
+      <div class="md-form">
+        <input type="password" id="materialLoginFormPassword"  ngModel name="password" class="form-control" mdbInput>
+        <label for="materialLoginFormPassword">Password</label>
+      </div>
+
+      <div class="d-flex justify-content-around">
+        <div>
+          <!-- Remember me -->
+          <mdb-checkbox>Remember me</mdb-checkbox>
+        </div>
+        <div>
+          <!-- Forgot password -->
+          <a href="">Forgot password?</a>
+        </div>
+
+
+
+      </div>
+
+      <!-- Sign in button -->
+      <button mdbBtn color="info" outline="true" rounded="true" block="true" class="my-4 waves-effect z-depth-0" mdbWavesEffect
+              type="submit">Sign in</button>
+
+      <!-- Register -->
+      <p>Not a member?
+        <a routerLink="/register">Register</a>
+      </p>
+
+      <!-- Social login -->
+      <p>or sign in with:</p>
+      <a (click)="submitLogin()" type="button" mdbBtn floating="true" color="fb" size="sm">
+        <mdb-icon fab icon="facebook"></mdb-icon>
+      </a>
+      <a type="button" mdbBtn floating="true" color="tw" size="sm">
+        <mdb-icon fab icon="twitter"></mdb-icon>
+      </a>
+      <a type="button" mdbBtn floating="true" color="li" size="sm">
+        <mdb-icon fab icon="linkedin"></mdb-icon>
+      </a>
+      <a type="button" mdbBtn floating="true" color="git" size="sm">
+        <mdb-icon fab icon="github"></mdb-icon>
+      </a>
+
+    </form>
+    <!-- Form -->
+
+  </mdb-card-body>
+
+</mdb-card>
+<!-- Material form login -->
+
+
+<div class="alert alert-danger" *ngIf="mode==1"> <!--ici on va faire un teste si l'object mode ==1 c'est a dire
+                                                           que la requette n'est pas bien envoyeer parceque on va instancier
+                                                           cette object dans le 1 si on a un erreur -->
+  <strong>Bad Credentials &nbsp;</strong>Invalid Username or Password.. !
+</div>
+
+</div>
